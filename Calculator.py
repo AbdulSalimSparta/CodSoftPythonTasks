@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import font
+
 
 def button_click(number):
     """ Gets the Number from User"""
@@ -8,9 +10,11 @@ def button_click(number):
     entry.delete(0, tk.END)
     entry.insert(tk.END, current + str(number))
 
+
 def button_clear():
     """ Clear the Number in entry list"""
     entry.delete(0, tk.END)
+
 
 def button_operator(operator):
     """ Gets the operator from User"""
@@ -20,6 +24,7 @@ def button_operator(operator):
     math_operation = operator
     f_num = float(first_number)
     entry.delete(0, tk.END)
+
 
 def button_equal():
     second_number = entry.get()
@@ -36,16 +41,21 @@ def button_equal():
         else:
             messagebox.showerror("Error", "Division by zero is not allowed.")
 
-# Create the main window
+
+# Creating the main window
 window = tk.Tk()
 window.title("Calculator")
 window.configure(bg="#4073fd")
+window.geometry("270x350")
 
-# Create the entry field
+# font style setting
+font_style = font.Font(family="Poppins", size=10)
+
+# Creating the entry field
 entry = tk.Entry(window, width=20, borderwidth=5, font=("Arial", 16), justify=tk.RIGHT)
 entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
-# Create the number buttons
+# Creating the number buttons
 button_1 = tk.Button(window, text="1", padx=20, pady=10, font=("Arial", 12), command=lambda: button_click(1))
 button_2 = tk.Button(window, text="2", padx=20, pady=10, font=("Arial", 12), command=lambda: button_click(2))
 button_3 = tk.Button(window, text="3", padx=20, pady=10, font=("Arial", 12), command=lambda: button_click(3))
@@ -68,11 +78,15 @@ button_8.grid(row=1, column=1, pady=5)
 button_9.grid(row=1, column=2, pady=5)
 button_0.grid(row=4, column=0, pady=5)
 
-# Create the operator buttons
-button_add = tk.Button(window, text="+", padx=19, pady=10, font=("Arial", 12), command=lambda: button_operator("addition"))
-button_subtract = tk.Button(window, text="-", padx=20, pady=10, font=("Arial", 12), command=lambda: button_operator("subtraction"))
-button_multiply = tk.Button(window, text="*", padx=20, pady=10, font=("Arial", 12), command=lambda: button_operator("multiplication"))
-button_divide = tk.Button(window, text="/", padx=20, pady=10, font=("Arial", 12), command=lambda: button_operator("division"))
+# Creating the operator buttons
+button_add = tk.Button(window, text="+", padx=19, pady=10, font=("Arial", 12),
+                       command=lambda: button_operator("addition"))
+button_subtract = tk.Button(window, text="-", padx=20, pady=10, font=("Arial", 12),
+                            command=lambda: button_operator("subtraction"))
+button_multiply = tk.Button(window, text="*", padx=20, pady=10, font=("Arial", 12),
+                            command=lambda: button_operator("multiplication"))
+button_divide = tk.Button(window, text="/", padx=20, pady=10, font=("Arial", 12),
+                          command=lambda: button_operator("division"))
 button_equal = tk.Button(window, text="=", padx=19, pady=10, font=("Arial", 12), command=button_equal)
 button_clear = tk.Button(window, text="C", padx=18, pady=10, font=("Arial", 12), command=button_clear)
 
@@ -83,7 +97,10 @@ button_divide.grid(row=4, column=3, pady=5)
 button_equal.grid(row=4, column=2, pady=5)
 button_clear.grid(row=4, column=1, pady=5)
 
-# Start the main event loop
+Credit_label = tk.Label(window, text="Code By Abdul Saleem", font=font_style)
+Credit_label.grid(row=5, column=0, columnspan=4, padx=10, pady=10)
+
+# Starting the GUI
 window.mainloop()
 
-#Code by Abdul Saleem
+# Code by Abdul Saleem

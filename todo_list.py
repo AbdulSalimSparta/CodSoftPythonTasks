@@ -28,35 +28,35 @@ def clear_tasks():
     listbox.delete(0, tk.END)
 
 
-# Create the main window
+# Creating the main window
 window = tk.Tk()
 window.title("To-Do List")
 
-# Create the listbox
+# Creating the listbox
 listbox = tk.Listbox(window, width=50)
 listbox.pack(pady=10)
 
-# Create the entry field
+# Creating the entry field
 entry = tk.Entry(window, font=("Helvetica", 14))
 entry.pack(pady=5)
 
-# Create the buttons
+# Creating the buttons
 button_frame = tk.Frame(window)
 button_frame.pack(pady=10)
 
-# Add Button
+# Add Button to perform Adding task
 add_button = tk.Button(button_frame, text="Add Task", command=add_task)
 add_button.grid(row=0, column=0)
 
-# Delete button
+# Delete button to perform Delete
 delete_button = tk.Button(button_frame, text="Delete Task", command=delete_task)
 delete_button.grid(row=0, column=1)
 
-# Clear Button
+# Clear Button to clear all
 clear_button = tk.Button(button_frame, text="Clear All", command=clear_tasks)
 clear_button.grid(row=0, column=2)
 
-# Start the main event loop
+# Starting the GUI
 window.mainloop()
 
 # Code by Abdul saleem
